@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/item_product_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="280dp">
+
+        <ImageView
+            android:id="@+id/item_product_image"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/mac" />
+
+        <EditText
+            android:id="@+id/item_prduct_edit_text_brand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_product_image"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
+
+        <EditText
+            android:id="@+id/item_prduct_edit_text_store"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_prduct_edit_text_brand"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
+
+        <EditText
+            android:id="@+id/item_prduct_edit_text_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_prduct_edit_text_store"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
+
+        <EditText
+            android:id="@+id/item_prduct_edit_text_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_prduct_edit_text_location"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
+
+        <Button
+            android:id="@+id/item_prduct_button_save"
+            android:layout_width="196dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/Save" />
+
+        <Button
+            android:id="@+id/item_prduct_button_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/item_prduct_button_save"
+            android:layout_alignBottom="@id/item_prduct_button_save"
+            android:text="@string/Cancel" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
