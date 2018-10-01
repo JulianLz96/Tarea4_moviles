@@ -50,6 +50,14 @@ public class ActivityProduct extends Activity {
             }
         });
 
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ActivityMain.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 }
