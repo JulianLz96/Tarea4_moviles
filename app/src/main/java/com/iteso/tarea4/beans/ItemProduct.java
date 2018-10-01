@@ -1,6 +1,9 @@
 package com.iteso.tarea4.beans;
 
-public class ItemProduct {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ItemProduct implements Parcelable{
 
     private int image;
     private String title;
@@ -8,6 +11,7 @@ public class ItemProduct {
     private String location;
     private String phone;
     private String description;
+    private int code;
 
     public ItemProduct(){
         setImage(0);
@@ -16,16 +20,28 @@ public class ItemProduct {
         setLocation("");
         setPhone("");
         setDescription("");
+        setCode(0);
 
     }
 
-    public ItemProduct(int image, String title, String store, String location, String phone, String description) {
+    public ItemProduct(int image, String title, String store, String location, String phone, String description, int code) {
         setTitle(title);
         setImage(image);
         setStore(store);
         setLocation(location);
         setPhone(phone);
         setDescription(description);
+        setCode(code);
+    }
+
+    protected ItemProduct(Parcel in) {
+        image = in.readInt();
+        title = in.readString();
+        store = in.readString();
+        location = in.readString();
+        phone = in.readString();
+        description = in.readString();
+        code = in.readInt();
     }
 
     public int getImage() {
@@ -76,6 +92,25 @@ public class ItemProduct {
         this.description = description;
     }
 
+    public int getCode() { return code; }
+
+    public void setCode(int code) { this.code = code; }
+
+    public static Creator<ItemProduct> getCreator() {return CREATOR; }
+
+    public static final Parcelable.Creator<ItemProduct> CREATOR = new Parcelable.Creator<ItemProduct>() {
+
+        @Override
+        public ItemProduct createFromParcel(Parcel source) {
+            return new ItemProduct(source);
+        }
+
+        @Override
+        public ItemProduct[] newArray(int size) {
+            return new ItemProduct[size];
+        }
+    };
+
     @Override
     public String toString() {
         return "ItemProduct{" +
@@ -86,5 +121,21 @@ public class ItemProduct {
                 ", description='" + description + '\'' +
                 ", image=" + image  +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(image);
+        dest.writeString(title);
+        dest.writeString(store);
+        dest.writeString(location);
+        dest.writeString(phone);
+        dest.writeString(description);
+        dest.writeInt(code);
     }
 }

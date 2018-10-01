@@ -1,4 +1,4 @@
-package com.iteso.tarea4.tools;
+package com.iteso.tarea4;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.iteso.tarea4.R;
 import com.iteso.tarea4.beans.ItemProduct;
 
 import java.util.ArrayList;
@@ -86,16 +85,21 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         holder.mProductPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_DIAL,
+                /*Intent intent = new Intent(Intent.ACTION_DIAL,
                         Uri.parse("tel: " + products.get(position).getPhone()));
-                context.startActivity(intent);
+                context.startActivity(intent);*/
+                Intent activity2 = new Intent(v.getContext() , ActivityProduct.class);
+                context.startActivity(activity2);
             }
         });
         holder.mEventLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, products.get(position).toString(),
-                        Toast.LENGTH_LONG).show();
+                /*Toast.makeText(context, products.get(position).toString(),
+                        Toast.LENGTH_LONG).show();*/
+                Intent activity2 = new Intent(v.getContext() , ActivityProduct.class);
+                activity2.putExtra("ITEM", products.get(position));
+                context.startActivity(activity2);
             }
         });
     }
